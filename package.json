@@ -1,0 +1,17 @@
+{
+  "name": "space-invaders-mvp",
+  "version": "0.0.1",
+  "description": "MVP for socket.io powered Space Invaders",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "zdods & russelltia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.14",
+    "socket.io": "^2.1.1"
+  }
+}

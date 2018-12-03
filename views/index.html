@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ARSI</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- LIBRARIES -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.js"></script>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- SCRIPTS -->
+    <script src="./assets/js/ar-events.js"></script>
+    <script src="./assets/js/socket-events.js"></script>
+    <script src="./assets/js/dom.js"></script>
+</head>
+
+<body id="game">
+    <!-- HEADER SECTION -->
+    <header>
+        <h1>AR Space Invaders</h1>
+        <br>
+        <p><span id="username"></span> | Score: <span id="score">0</span></p>
+        <div id="alerts">
+            <p id="message">waiting for game to start...</p>
+        </div>
+
+        <form id="name-form">
+            <input type="text" id="name-input" placeholder="username">
+            <input type="submit" value="Join">
+        </form>
+    </header>
+
+    <!-- A-SCENE -->
+    <a-scene embedded arjs='debugUIEnabled: false;'>
+        <!-- A-MARKER -->
+        <a-marker preset="hiro">
+            <!-- for hiro marker preset -->
+        </a-marker>
+
+        <!-- CAMERA & CURSOR -->
+        <a-entity camera>
+            <!-- add camera & cursor -->
+            <a-cursor color="white"></a-cursor>
+        </a-entity>
+    </a-scene>
+
+</body>
+
+</html>

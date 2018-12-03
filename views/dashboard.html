@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ARSI: Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body id="dashboard">
+    <!-- TITLE -->
+    <header>
+        <h1>AR Space Invaders: Dashboard</h1>
+    </header>
+    <br>
+    <!-- CONTROLS FOR GAME -->
+    <section id="control-panel">
+        <h2>Game Controls:</h2>
+        <br>
+        <button id="start">Start</button>
+        <button id="reset">Reset</button>
+    </section>
+    <!-- QUEUE -->
+    <section id="queue">
+        <h2>Current Queue:</h2>
+    </section>
+    <!-- LEADERBOARD AREA -->
+    <section id="leaderboard">
+        <h2>All-Time Leaderboard:</h2>
+        <ol id="players">
+
+        </ol>
+    </section>
+</body>
+<script>
+    $(document).ready(function () {
+        // connect to socket
+        var socket = io();
+        
+        // start game
+        $('#start').click(function (e) { 
+            e.preventDefault();
+            socket.emit('start');
+        });
+
+        socket.on('displayPlayer', (player) => {
+            $('#queue').append(`
+                ${player.name}
+            `);
+        });
+        
+        $.ajax({
+            type: "GET",
+            url: "/leaderboard",
+            dataType: "JSON",
+            success: (players) => {
+                $.map(players, function (player, index) {
+                    $('#players').append(`
+                    <li id="${player._id}">
+                        ${player.name} | ${player.score}    
+                    </li>
+                    `);
+                    if(index > 9){
+                        return;
+                    }
+                });
+            }
+        });
+    });
+</script>
+</html>
