@@ -18,11 +18,26 @@
         padding: 2%;
 
         h1 {
+            display: flex;
+            align-items: center;
+            #invader {
+                width: 2em;
+                margin-right: 0.5em;
+            }
+
             font-size: 1.2em;
         }
 
         #alerts {
             float: right;
+        }
+
+        input[type="submit"] {
+            background: none;
+            border: none;
+            padding: 10px;
+            color: #fff;
+            cursor: pointer;
         }
     }
 }
@@ -31,25 +46,55 @@
     background: #000;
     color: #fff;
 
-    h1 {
-        padding: 1%;
-        font-size: 1.2em;
-        text-align: center;
+    #marker-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.8);
+        display: none;
+        padding: 2%;
+        
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 50%;
+        }
+
     }
 
-    #control-panel, #leaderboard, #queue {
+    h1 {
+        display: flex;
+        align-items: center;
+        #invader {
+            width: 2em;
+            margin-right: 0.5em;
+        }
+
+        font-size: 1.2em;
+    }
+
+    #control-panel,
+    #leaderboard,
+    #queue {
         border: 1px dashed #fff;
         padding: 1%;
         width: 100%;
 
         button {
+            background: none;
+            border: none;
             padding: 10px;
+            color: #fff;
+            cursor: pointer;
         }
     }
 
     #leaderboard {
         ol {
             list-style-position: inside;
+
             li {
                 margin: 1% 0;
             }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +11,23 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 </head>
+
 <body id="dashboard">
+    <div id="marker-overlay">
+        <img src="/assets/img//hiro.png" alt="Hiro AR Marker">
+    </div>
     <!-- TITLE -->
     <header>
-        <h1>AR Space Invaders: Dashboard</h1>
+        <h1><img id="invader" src="/assets/img/invader.png" alt="Space Invader" />AR Space Invaders: Dashboard</h1>
     </header>
     <br>
     <!-- CONTROLS FOR GAME -->
     <section id="control-panel">
         <h2>Game Controls:</h2>
         <br>
-        <button id="start">Start</button>
-        <button id="reset">Reset</button>
+        <button id="start">>Start<</button>
+        <button id="reset">>Reset<</button>
+        <button id="marker">>Marker<</button>
     </section>
     <!-- QUEUE -->
     <section id="queue">
@@ -39,11 +45,20 @@
     $(document).ready(function () {
         // connect to socket
         var socket = io();
-        
+
         // start game
-        $('#start').click(function (e) { 
+        $('#start').click(function (e) {
             e.preventDefault();
             socket.emit('start');
+        });
+
+        // open marker
+        $('#marker').click(function (e) {
+            e.preventDefault();
+            $('#marker-overlay').fadeToggle();
+        });
+        $('#marker-overlay').click(function (e) {
+            $(this).fadeToggle();
         });
 
         socket.on('displayPlayer', (player) => {
@@ -51,19 +66,21 @@
                 ${player.name}
             `);
         });
-        
+
         $.ajax({
             type: "GET",
             url: "/leaderboard",
             dataType: "JSON",
             success: (players) => {
                 $.map(players, function (player, index) {
-                    $('#players').append(`
+                    $('#players').append(
+                        `
                     <li id="${player._id}">
                         ${player.name} | ${player.score}    
                     </li>
-                    `);
-                    if(index > 9){
+                    `
+                    );
+                    if (index > 9) {
                         return;
                     }
                 });
@@ -71,4 +88,5 @@
         });
     });
 </script>
+
 </html>

@@ -14,23 +14,58 @@
   color: #fff;
   padding: 2%; }
   #game header h1 {
+    display: flex;
+    align-items: center;
     font-size: 1.2em; }
+    #game header h1 #invader {
+      width: 2em;
+      margin-right: 0.5em; }
   #game header #alerts {
     float: right; }
+  #game header input[type="submit"] {
+    background: none;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer; }
 
 #dashboard {
   background: #000;
   color: #fff; }
+  #dashboard #marker-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.8);
+    display: none;
+    padding: 2%; }
+    #dashboard #marker-overlay img {
+      display: block;
+      margin: 0 auto;
+      width: 50%; }
   #dashboard h1 {
-    padding: 1%;
-    font-size: 1.2em;
-    text-align: center; }
-  #dashboard #control-panel, #dashboard #leaderboard, #dashboard #queue {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em; }
+    #dashboard h1 #invader {
+      width: 2em;
+      margin-right: 0.5em; }
+  #dashboard #control-panel,
+  #dashboard #leaderboard,
+  #dashboard #queue {
     border: 1px dashed #fff;
     padding: 1%;
     width: 100%; }
-    #dashboard #control-panel button, #dashboard #leaderboard button, #dashboard #queue button {
-      padding: 10px; }
+    #dashboard #control-panel button,
+    #dashboard #leaderboard button,
+    #dashboard #queue button {
+      background: none;
+      border: none;
+      padding: 10px;
+      color: #fff;
+      cursor: pointer; }
   #dashboard #leaderboard ol {
     list-style-position: inside; }
     #dashboard #leaderboard ol li {

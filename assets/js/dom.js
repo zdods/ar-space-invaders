@@ -11,6 +11,6 @@ $(document).ready(function () {
 
         $('#name-form').remove();
 
-        $('#username').html(username);
+        $('#username').html(`${username} | `);
     });
 });
