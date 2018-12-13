@@ -61,12 +61,14 @@
             $(this).fadeToggle();
         });
 
+        // append players name to queue screen
         socket.on('displayPlayer', (player) => {
             $('#queue').append(`
                 ${player.name}
             `);
         });
 
+        // get leadboard from Mongo
         $.ajax({
             type: "GET",
             url: "/leaderboard",

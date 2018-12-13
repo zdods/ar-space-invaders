@@ -19,6 +19,7 @@ socket.on('end', function (id) {
     });
 });
 
+// display final results
 socket.on('results', (results) => {
     var players = '';
     results.forEach(player => {
@@ -38,6 +39,7 @@ socket.on('start', function (res) {
     $('#alerts #message').html('game in progress');
 
     // add space invaders to client DOM
+    // H U G E multi-line string boss
     $('a-marker').append(`
         <!-- GREEN -->
         <a-box id="g1" color="#3DFF45" position="-0.5 0 -1" scale="0.1 0.1 0.1" handle-events>

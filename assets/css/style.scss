@@ -1,5 +1,9 @@
+// ALL STYLES
+
+// FONT IMPORT
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
+// GLOBAL PRIMER
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,7 +11,9 @@
     font-family: 'Press Start 2P', sans-serif;
 }
 
+// GAME SCREEN
 #game {
+    // HEADER SECTION
     header {
         position: absolute;
         z-index: 999;
@@ -42,10 +48,12 @@
     }
 }
 
+// ADMIN DASHBOARD
 #dashboard {
     background: #000;
     color: #fff;
 
+    // OVERLAY FOR HIRO MARKER
     #marker-overlay {
         position: absolute;
         top: 0;

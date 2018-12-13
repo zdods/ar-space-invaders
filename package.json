@@ -1,8 +1,8 @@
 {
   "name": "space-invaders-mvp",
   "version": "0.0.1",
-  "description": "MVP for socket.io powered Space Invaders",
-  "main": "index.js",
+  "description": "socket.io powered Space Invaders",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js"
